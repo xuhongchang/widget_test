@@ -114,7 +114,7 @@ class MusicManagerService : Service() {
             action = MusicAppWidget.ACTION_UPDATE_UI
             putExtra(MusicAppWidget.KEY_UI_PLAY_BTN, playStatus)
             putExtra(MusicAppWidget.KEY_UI_PLAY_NAME, "Ring")
-            //8.0以后必须要加这段代码不然收不到广播
+            //如果不是显示构造的intent 8.0以后必须要加这段代码不然收不到广播
             //包名、接受者receiver 所在路径
             /* component = ComponentName(
                  packageName,
