@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".shortcut.StaticShortcutActivity">
+
+    <TextView
+        android:id="@+id/tv_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/static_shortcut_label_short"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="100dp"/>
+
+
+    <Button
+        android:id="@+id/bt_create_dynamic_shortcut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_dynamic_shortcut"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_hint"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/bt_create_pin_shortcut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_pin_shortcut"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_create_dynamic_shortcut"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/bt_create_pin_shortcut_exist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_pin_shortcut_while_exist"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_create_pin_shortcut"
+        android:layout_marginTop="20dp"/>
+
+
+    <TextView
+        android:id="@+id/tv_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/update_hint"
+        app:layout_constraintTop_toBottomOf="@+id/bt_create_pin_shortcut_exist"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_update">
+
+
+        <Button
+            android:id="@+id/bt_update_dynamic_shortcut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/update_dynamic_shortcut"
+            android:layout_marginTop="20dp"/>
+        <Button
+            android:id="@+id/bt_disable_dynamic_shortcut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/disable_dynamic_shortcut"
+            android:layout_marginTop="20dp"/>
+        <Button
+            android:id="@+id/bt_enable_dynamic_shortcut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enable_dynamic_shortcut"
+            android:layout_marginTop="20dp"/>
+        <Button
+            android:id="@+id/bt_remove_dynamic_shortcut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/remove_dynamic_shortcut"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

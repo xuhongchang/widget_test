@@ -1,5 +1,17 @@
 <resources>
-    <string name="app_name">widget test</string>
+    <string name="app_name">MyTest</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
+
+    <string name="static_shortcut_label_short">静态快捷方式</string>
+    <string name="static_shortcut_label_long">静态快捷方式长内容介绍 测试 测试</string>
+    <string name="static_disabled_message">静态快捷方式已被禁用</string>
+    <string name="create_dynamic_shortcut">创建动态快捷方式</string>
+    <string name="create_pin_shortcut">创建固定快捷方式</string>
+    <string name="create_pin_shortcut_while_exist">创建固定快捷方式(该快捷方式已存在)</string>
+    <string name="update_hint">更新</string>
+    <string name="update_dynamic_shortcut">更新动态快捷方式</string>
+    <string name="disable_dynamic_shortcut">禁用动态快捷方式</string>
+    <string name="enable_dynamic_shortcut">启用动态快捷方式</string>
+    <string name="remove_dynamic_shortcut">删除动态快捷方式</string>
 </resources>

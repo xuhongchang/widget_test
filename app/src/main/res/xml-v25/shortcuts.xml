@@ -1,0 +1,19 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="static shortcut"
+        android:enabled="true"
+        android:icon="@mipmap/static_shortcut_icon"
+        android:shortcutShortLabel="@string/static_shortcut_label_short"
+        android:shortcutLongLabel="@string/static_shortcut_label_long"
+        android:shortcutDisabledMessage="@string/static_disabled_message">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.android.widgettest"
+            android:targetClass="com.android.widgettest.shortcut.TrampolineActivity" />
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+
+    </shortcut>
+    <!-- Specify more shortcuts here. -->
+</shortcuts>

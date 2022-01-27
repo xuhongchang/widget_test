@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.widgettest">
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.WidgetTest"
-        android:name=".App">
+        android:theme="@style/Theme.WidgetTest">
+        <activity
+            android:name=".shortcut.CustomShortcutActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".shortcut.StaticShortcutActivity"
+            android:exported="false" />
+
         <receiver android:name=".NewAppWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -21,47 +34,79 @@
         </receiver>
 
         <activity android:name=".NewAppWidgetConfigActivity">
-            <intent-filter >
-                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
         </activity>
 
         <receiver android:name=".MyAppwidget">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/my_app_widget"/>
-
+                android:resource="@xml/my_app_widget" />
         </receiver>
 
-        <service android:name=".MyAppWidgetListViewService"
-            android:permission="android.permission.BIND_REMOTEVIEWS"/>
-
+        <service
+            android:name=".MyAppWidgetListViewService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <receiver android:name=".custom.MusicAppWidget">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
-                <action android:name="action_update_ui"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="action_update_ui" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/music_app_widget_info"/>
+                android:resource="@xml/music_app_widget_info" />
         </receiver>
 
-        <service android:name=".custom.MusicManagerService"/>
+        <service android:name=".custom.MusicManagerService" />
 
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <!-- 静态快捷方式 -->
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:host="com.android.widgettest"
+                    android:scheme="https" />
+            </intent-filter>
         </activity>
+
+        <activity android:name=".DialogActivity"
+            android:excludeFromRecents="true"
+            android:theme="@style/Theme.AppCompat.Dialog"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".shortcut.TrampolineActivity"
+            android:taskAffinity=""
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:theme="@style/TransparentActivityTheme"/>
+
+
     </application>
 
 </manifest>
