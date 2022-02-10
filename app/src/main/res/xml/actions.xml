@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actions>
+
+    <action intentName="actions.intent.OPEN_APP_FEATURE">
+        <parameter name="feature">
+            <entity-set-reference entitySetId="FeatureEntitySet" />
+        </parameter>
+
+        <fulfillment urlTemplate="https://com.android.widgettest/{?name}">
+            <parameter-mapping
+                intentParameter="feature"
+                urlParameter="name" />
+        </fulfillment>
+    </action>
+
+    <entity-set entitySetId="FeatureEntitySet">
+        <entity
+            name="first feature"
+            identifier="FEATUREONE" />
+        <entity
+            name="second feature"
+            identifier="FEATURETWO" />
+    </entity-set>
+
+
+    <action intentName="custom.action.intent.OPEN_THE_DOOR" queryPatterns="@array/OpenTheDoor">
+        <parameter name="device" type="https://schema.org/Text"/>
+        <parameter name="channel" type="https://schema.org/Text"/>
+
+
+        <fulfillment urlTemplate="https://com.android.widgettest/{?d,c}">
+            <parameter-mapping
+                intentParameter="device"
+                urlParameter="d"/>
+            <parameter-mapping
+                intentParameter="channel"
+                urlParameter="c"/>
+
+        </fulfillment>
+    </action>
+
+    <action intentName="custom.action.intent.OPEN_APP" queryPatterns="@array/OpenApp">
+        <parameter name="name1" type="https://schema.org/Text"/>
+
+
+        <fulfillment urlTemplate="https://com.android.widgettest/{?app_name}">
+            <parameter-mapping
+                intentParameter="name1"
+                urlParameter="app_name"/>
+        </fulfillment>
+    </action>
+
+    <action intentName="custom.action.intent.UNLOCK" queryPatterns="@array/Unlock">
+        <parameter name="room" type="https://schema.org/Text"/>
+        <parameter name="door" type="https://schema.org/Text"/>
+
+        <fulfillment urlTemplate="https://com.android.widgettest/{?room_name,door_name}">
+            <parameter-mapping
+                intentParameter="room"
+                urlParameter="room_name"/>
+            <parameter-mapping
+                intentParameter="door"
+                urlParameter="door_name"/>
+        </fulfillment>
+    </action>
+</actions>

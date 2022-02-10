@@ -3,4 +3,15 @@
         <attr name="appWidgetBackgroundColor" format="color" />
         <attr name="appWidgetTextColor" format="color" />
     </declare-styleable>
+
+    <string-array name="OpenTheDoor">
+        <item>find $device $channel</item>
+    </string-array>
+    <string-array name="OpenApp">
+        <item>open $name1</item>
+    </string-array>
+
+    <string-array name="Unlock">
+        <item>unlock $room and $door</item>
+    </string-array>
 </resources>
