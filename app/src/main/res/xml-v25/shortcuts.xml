@@ -17,6 +17,8 @@
     </shortcut>
     <!-- Specify more shortcuts here. -->
 
+    <!--app Actions-->
+    <!--##########内置意图+ 内联实体集 -->
     <capability android:name="actions.intent.OPEN_APP_FEATURE">
         <intent>
             <url-template android:value="https://com.android.widgettest/{?name}" />
@@ -44,4 +46,138 @@
         </capability-binding>
     </shortcut>
 
+    <!--##########内置意图+ 内联实体集 多匹配名称 见@array/run_names-->
+
+    <capability android:name="actions.intent.START_EXERCISE">
+        <intent
+            android:targetPackage="com.quvii.qvfun"
+            android:targetClass="com.android.widgettest.MainActivity">
+            <parameter android:name="exercise.name" android:key="test_parameter" />
+        </intent>
+    </capability>
+
+    <shortcut android:shortcutId="CARDIO_RUN"
+        android:shortcutShortLabel="@string/static_shortcut_label_short">
+        <capability-binding android:key="actions.intent.START_EXERCISE">
+            <parameter-binding
+                android:key="exercise.name"
+                android:value="@array/run_names" />
+        </capability-binding>
+    </shortcut>
+
+    <!--######## 内置意图-->
+
+    <capability android:name="actions.intent.ORDER_MENU_ITEM">
+        <intent
+            android:targetPackage="com.quvii.qvfun"
+            android:targetClass="com.android.widgettest.MainActivity">
+            <parameter android:name="menuItem.name" android:key="test_parameter" />
+        </intent>
+    </capability>
+
+    <!--######自定义意图 使用深层链接-->
+
+    <!--<capability android:name="custom.action.intent.UNLOCK" queryPatterns="@array/Unlock">
+        <intent>
+            <url-template android:value="https://com.android.widgettest/{?room_name,door_name}" />
+            <parameter
+                android:name="room"
+                android:key="room_name"
+                android:mimeType="https://schema.org/Text"/>
+            <parameter
+                android:name="door"
+                android:key="door_name"
+                android:mimeType="https://schema.org/Text"/>
+        </intent>
+
+    </capability>-->
+    <!--#######  自定义意图 使用显示意图指定Activity-->
+    <capability android:name="custom.action.intent.UNLOCK" queryPatterns="@array/Unlock">
+        <intent android:targetPackage="com.quvii.qvfun"
+            android:targetClass="com.android.widgettest.MainActivity">
+            <parameter
+                android:name="room"
+                android:key="room_name"
+                android:mimeType="https://schema.org/Text"/>
+            <parameter
+                android:name="door"
+                android:key="door_name"
+                android:mimeType="https://schema.org/Text"/>
+        </intent>
+    </capability>
+
+    <!--######  自定义意图+内联实体集-->
+    <capability android:name="custom.action.intent.OPEN_THE_DOOR" queryPatterns="@array/OpenChannel">
+        <intent android:targetPackage="com.quvii.qvfun"
+            android:targetClass="com.android.widgettest.MainActivity">
+            <parameter
+                android:name="device"
+                android:key="room_name"
+                android:mimeType="https://schema.org/Text"/>
+            <!-- The following parameter has no type because the shortcuts are bound to it -->
+            <parameter
+                android:name="channel"
+                android:key="door_name"
+                />
+        </intent>
+    </capability>
+
+    <shortcut android:shortcutId="channel1"
+        android:shortcutShortLabel="@string/static_shortcut_label_short">
+        <capability-binding android:key="custom.action.intent.OPEN_THE_DOOR">
+            <parameter-binding
+                android:key="channel"
+                android:value="channel 1" />
+        </capability-binding>
+    </shortcut>
+
+    <shortcut android:shortcutId="channel2"
+        android:shortcutShortLabel="@string/static_shortcut_label_short">
+        <capability-binding android:key="custom.action.intent.OPEN_THE_DOOR">
+            <parameter-binding
+                android:key="channel"
+                android:value="channel 2" />
+        </capability-binding>
+    </shortcut>
+
+
+    <!--######  自定义意图+内联实体集 多参数-->
+    <capability android:name="custom.action.intent.OPEN_THE_DOOR1" queryPatterns="@array/OpenChannel1">
+        <intent android:targetPackage="com.quvii.qvfun"
+            android:targetClass="com.android.widgettest.MainActivity">
+            <parameter
+                android:name="device"
+                android:key="room_name"
+                android:mimeType="https://schema.org/Text"/>
+
+            <parameter
+                android:name="lock"
+                android:key="lock_name"
+                android:mimeType="https://schema.org/Text"/>
+
+            <!-- The following parameter has no type because the shortcuts are bound to it -->
+            <parameter
+                android:name="channel"
+                android:key="door_name"
+                />
+        </intent>
+    </capability>
+
+    <shortcut android:shortcutId="channel1"
+        android:shortcutShortLabel="@string/static_shortcut_label_short">
+        <capability-binding android:key="custom.action.intent.OPEN_THE_DOOR1">
+            <parameter-binding
+                android:key="channel"
+                android:value="channel 1" />
+        </capability-binding>
+    </shortcut>
+
+    <shortcut android:shortcutId="channel2"
+        android:shortcutShortLabel="@string/static_shortcut_label_short">
+        <capability-binding android:key="custom.action.intent.OPEN_THE_DOOR1">
+            <parameter-binding
+                android:key="channel"
+                android:value="channel 2" />
+        </capability-binding>
+    </shortcut>
 </shortcuts>
