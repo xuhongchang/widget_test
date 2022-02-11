@@ -1,4 +1,5 @@
-<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <shortcut
         android:shortcutId="static shortcut"
         android:enabled="true"
@@ -13,7 +14,34 @@
         <!-- If your shortcut is associated with multiple intents, include them
              here. The last intent in the list determines what the user sees when
              they launch this shortcut. -->
-
     </shortcut>
     <!-- Specify more shortcuts here. -->
+
+    <capability android:name="actions.intent.OPEN_APP_FEATURE">
+        <intent>
+            <url-template android:value="https://com.android.widgettest/{?name}" />
+            <parameter android:name="feature" android:key="name" />
+        </intent>
+    </capability>
+
+    <shortcut android:shortcutId="FEATUREONE"
+        android:shortcutShortLabel="@string/static_shortcut_label_short"
+        >
+        <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">
+            <parameter-binding
+                android:key="feature"
+                android:value="first feature" />
+        </capability-binding>
+    </shortcut>
+
+    <shortcut android:shortcutId="FEATURETWO"
+        android:shortcutShortLabel="@string/static_shortcut_label_short"
+        >
+        <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">
+            <parameter-binding
+                android:key="feature"
+                android:value="second feature" />
+        </capability-binding>
+    </shortcut>
+
 </shortcuts>
